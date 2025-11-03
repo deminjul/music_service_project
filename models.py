@@ -2,6 +2,8 @@ from sqlmodel import SQLModel, Field, Relationship
 from typing import Optional, List
 from datetime import datetime, date
 from decimal import Decimal
+from datetime import timedelta 
+
 
 # Базовые модели
 class User(SQLModel, table=True):

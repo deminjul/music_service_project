@@ -1,4 +1,4 @@
-# 🎵 Music Service API
+# Music Service API
 
 API для музыкального сервиса с использованием FastAPI, SQLModel и PostgreSQL.
 

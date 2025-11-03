@@ -93,3 +93,35 @@ curl -X GET "http://127.0.0.1:8000/albums/2/tracks"
 1. Получить историю прослушиваний пользователя
 2. Анализировать популярные треки
 3. Строить рекомендации на основе предпочтений
+
+
+##  эндпоинты для пользователей
+
+### Регистрация пользователя
+```http
+POST /users/
+Content-Type: application/json
+
+{
+  "email": "newuser@example.com",
+  "password_hash": "secure_password",
+  "username": "new_user"
+}
+```
+
+### Обновление профиля
+```http
+PUT /users/1
+Content-Type: application/json
+
+{
+  "username": "updated_username",
+  "country": "USA"
+}
+```
+
+### Аутентификация
+```http
+POST /login/
+```
+*Используйте Basic Auth в Swagger UI*
