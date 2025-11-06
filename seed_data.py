@@ -6,7 +6,7 @@ from decimal import Decimal
 def create_sample_data():
     with next(get_session()) as session:
         
-        # Создаем артистов
+        #  артисты
         blur = Artist(
             name="Blur", 
             bio="British rock band formed in London in 1988",
@@ -24,7 +24,7 @@ def create_sample_data():
         session.add_all([blur, radiohead])
         session.commit()
         
-        # Создаем альбомы
+        #  альбомы
         magic_whip = Album(
             title="The Magic Whip",
             artist_id=blur.id,
@@ -42,7 +42,7 @@ def create_sample_data():
         session.add_all([magic_whip, ok_computer])
         session.commit()
         
-        # Создаем треки для Blur - The Magic Whip
+        # треки для Blur The Magic Whip
         go_out = Track(
             title="Go Out",
             album_id=magic_whip.id,
@@ -61,7 +61,7 @@ def create_sample_data():
             track_number=4
         )
         
-        # Создаем треки для Radiohead - OK Computer
+        # треки для Radiohead - OK Computer
         let_down = Track(
             title="Let Down",
             album_id=ok_computer.id,
@@ -83,7 +83,7 @@ def create_sample_data():
         session.add_all([go_out, ghost_ship, let_down, karma_police])
         session.commit()
         
-        # Создаем тестового пользователя
+        # тестовый пользователь
         test_user = User(
             email="music.fan@example.com",
             password_hash="hashed_password_123",
@@ -98,14 +98,14 @@ def create_sample_data():
         session.add(test_user)
         session.commit()
         
-        # Добавляем треки в избранное
+        # добавляем треки в избранное
         favorite1 = Favorite(user_id=test_user.id, track_id=go_out.id)
         favorite2 = Favorite(user_id=test_user.id, track_id=karma_police.id)
         
         session.add_all([favorite1, favorite2])
         session.commit()
         
-        # Создаем плейлист
+        # создаем плейлист
         playlist = Playlist(
             user_id=test_user.id,
             name="My Favorite Rock Songs",
@@ -116,7 +116,7 @@ def create_sample_data():
         session.add(playlist)
         session.commit()
         
-        # Добавляем треки в плейлист
+        # добавляем треки в плейлист
         playlist_track1 = PlaylistTrack(
             playlist_id=playlist.id,
             track_id=ghost_ship.id,
@@ -134,7 +134,7 @@ def create_sample_data():
         session.add_all([playlist_track1, playlist_track2])
         session.commit()
         
-        # Добавляем историю прослушиваний
+        # история прослушиваний
         history1 = ListeningHistory(
             user_id=test_user.id,
             track_id=go_out.id,
@@ -150,7 +150,7 @@ def create_sample_data():
         session.add_all([history1, history2])
         session.commit()
         
-        # Добавляем рекомендации
+        # рекомендации
         recommendation = Recommendation(
             user_id=test_user.id,
             track_id=let_down.id,
